@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    <domain-config cleartextTrafficPermitted="true">
+<!--        <domain includeSubdomains="true">https://momenta.renata-ltd.com</domain>-->
+        <domain includeSubdomains="true">https://dev.appinionbd.com</domain>
+<!--        <domain includeSubdomains="true">https://10.10.20.29</domain>-->
+    </domain-config>
+</network-security-config>
+
+<!--TODO change sub domain to deploy-->

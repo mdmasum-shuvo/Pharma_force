@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+
 }
 
 android {
@@ -17,6 +20,10 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+        buildConfigField "String", "BASE_URL_DEV", "\"" + getBaseUrlDev() + "\""
+        buildConfigField "String", "BASE_URL_LIVE", "\"" + getBaseUrlLive() + "\""
+        buildConfigField "String", "MIS_URL", "\"" + getRenataMisUrl() + "\""
+        buildConfigField "String", "SECRETE_KEY", "\"" + getSecreteKey() + "\""
     }
 
     buildTypes {
@@ -47,6 +54,54 @@ android {
     }
 }
 
+def getBaseUrlDev() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+    String url = properties.getProperty("dev_url")
+
+    if (url == null)
+        throw new GradleException("")
+
+    return url
+}
+
+def getBaseUrlLive() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+    String url = properties.getProperty("live_url")
+
+    if (url == null)
+        throw new GradleException("")
+
+    return url
+}
+
+def getRenataMisUrl() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+    String url = properties.getProperty("mis_url")
+
+    if (url == null)
+        throw new GradleException("")
+
+    return url
+}
+
+def getSecreteKey() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+    String key = properties.getProperty("secrate_auth_key")
+
+    if (key == null)
+        throw new GradleException("")
+
+    return key
+}
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -62,4 +117,25 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1'
+
+    //hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$version_hilt_viewmodel"
+    implementation "androidx.hilt:hilt-navigation-compose:$version_hilt_navigation"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit: $version_retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$version_retrofit_coroutines_adapter"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+    implementation "com.squareup.moshi:moshi-adapters:$version_moshi"
+
 }
