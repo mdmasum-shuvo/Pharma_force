@@ -7,7 +7,12 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.appinion.pharma_force.base.Routing
 import com.appinion.pharma_force.feature.auth.LoginScreen
+import com.appinion.pharma_force.feature.dashboard.DashBoardScreen
 import com.appinion.pharma_force.ui.theme.PharmaForceTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +27,26 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background,
                     shape = MaterialTheme.shapes.medium
                 ) {
-                    LoginScreen()
+                    val navController = rememberNavController()
+
+                    NavHost(
+                        navController = navController,
+                        startDestination = Routing.LoginScreen.route
+                    ) {
+                        composable(
+                            route = Routing.LoginScreen.route
+                        ) {
+                            LoginScreen(navController)
+                        }
+
+                        composable(
+                            route = Routing.DashBoardScreen.route
+                        ) {
+                            DashBoardScreen()
+                        }
+
+                    }
+
                 }
             }
         }
@@ -36,6 +60,5 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     PharmaForceTheme {
-        LoginScreen()
     }
 }
