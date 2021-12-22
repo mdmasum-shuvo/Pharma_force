@@ -3,7 +3,7 @@ package com.appinion.pharma_force.di
 import android.content.Context
 import android.content.SharedPreferences
 
-import com.appinion.pharma_force.screen.common.PharmaApplication
+import com.appinion.pharma_force.feature.common.PharmaApplication
 
 import dagger.Module
 import dagger.Provides

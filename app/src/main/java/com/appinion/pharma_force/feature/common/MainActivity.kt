@@ -1,17 +1,17 @@
-package com.appinion.pharma_force.screen.common
+package com.appinion.pharma_force.feature.common
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.appinion.pharma_force.di.MyPreference
+import com.appinion.pharma_force.feature.auth.LoginScreen
 import com.appinion.pharma_force.ui.theme.PharmaForceTheme
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,28 +22,20 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background,
                     shape = MaterialTheme.shapes.medium
                 ) {
-                    Greeting("Android")
+                    LoginScreen()
                 }
-
             }
         }
-
     }
 
 
-
-
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun DefaultPreview() {
     PharmaForceTheme {
-        Greeting("Android")
+        LoginScreen()
     }
 }

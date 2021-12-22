@@ -16,6 +16,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.*
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -34,12 +35,13 @@ object NetworkModule {
             .addInterceptor { chain ->
                 val request: okhttp3.Request = if (token == "") {
                     chain.request().newBuilder()
-                        .addHeader("token", "")
-                        .addHeader("authorization", "")
+                        .addHeader("Content-Type", "application/json")
+                        .addHeader("authorization", SECRETE_KEY)
                         .build()
 
                 } else {
                     chain.request().newBuilder()
+                        .addHeader("Content-Type", "application/json")
                         .addHeader("token", "Bearer ${token}")
                         .build()
                 }
@@ -74,8 +76,9 @@ object NetworkModule {
     }
 
 
-    @Provides
+/*    @Provides
     @Singleton
+    @Named("mis")
     fun provideNetworkCallbackMis(okHttpClient: OkHttpClient, moshi: Moshi): NetworkCallbackApi {
 
         return Retrofit.Builder()
@@ -85,6 +88,6 @@ object NetworkModule {
             .baseUrl(MIS_URL)
             .build()
             .create(NetworkCallbackApi::class.java)
-    }
+    }*/
 
 }

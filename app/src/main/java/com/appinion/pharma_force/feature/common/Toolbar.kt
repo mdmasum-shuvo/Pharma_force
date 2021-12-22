@@ -1,4 +1,4 @@
-package com.appinion.pharma_force.screen.common
+package com.appinion.pharma_force.feature.common
 
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
