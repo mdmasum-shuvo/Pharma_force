@@ -23,9 +23,9 @@ class AuthViewModel @Inject constructor(private val loginUseCase: LoginUseCase) 
     private val _status = MutableLiveData<LoginResponse>()
     val status: LiveData<LoginResponse> = _status
 
-    init {
+ /*   init {
         requestLogin("RF30528", "1039842")
-    }
+    }*/
 
     fun requestLogin(userId: String, pass: String) {
         loginUseCase(userId = userId, password = pass).onEach { result ->

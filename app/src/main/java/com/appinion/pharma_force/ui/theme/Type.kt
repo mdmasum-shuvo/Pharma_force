@@ -10,12 +10,13 @@ import androidx.compose.ui.unit.sp
 
 // Set of Material typography styles to start with
 val Typography = Typography(
-    body1 = TextStyle(
-        fontFamily = FontFamily.SansSerif,
-        fontWeight = FontWeight.Normal,
+
+    h1 = TextStyle(
+        fontFamily = fonts,
+        fontWeight = FontWeight.Medium,
+        color = BlueMedium,
         fontSize = 16.sp
     ),
-
     h2 = TextStyle(
         fontFamily = fonts,
         fontWeight = FontWeight.Medium,
@@ -25,20 +26,44 @@ val Typography = Typography(
 
     h3 = TextStyle(
         fontFamily = fonts,
+        fontWeight = FontWeight.Bold,
+        color = BlueMedium,
+        fontSize = 12.sp
+    ),
+    h4 = TextStyle(
+        fontFamily = fonts,
         fontWeight = FontWeight.Normal,
-        color = Black
-    )
+        color = BlueMedium,
+        fontSize = 10.sp
+    ),
 
-    /* Other default text styles to override
-    button = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
+    body1 = TextStyle(
+        fontFamily = fonts,
+        fontWeight = FontWeight.Normal,
+        color = BlueMedium,
+        fontSize = 16.sp
+    ),
+
+    body2 = TextStyle(
+        fontFamily = fonts,
+        fontWeight = FontWeight.Normal,
+        color = BlueMedium,
         fontSize = 14.sp
     ),
-    caption = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
-    )
-    */
+
+
+
+
+/* Other default text styles to override
+button = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.W500,
+    fontSize = 14.sp
+),
+caption = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Normal,
+    fontSize = 12.sp
+)
+*/
 )
