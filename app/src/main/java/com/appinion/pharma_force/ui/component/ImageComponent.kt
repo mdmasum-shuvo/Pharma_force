@@ -12,9 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.appinion.pharma_force.R
 
 @Composable
-fun ImageNormal(drawableId:Int,height:Int,width:Int){
+fun ImageNormal(drawableId:Int= R.drawable.app_icon, height:Int=84, width:Int=120){
     Image(
         painterResource(drawableId),
         contentDescription = "logo",
