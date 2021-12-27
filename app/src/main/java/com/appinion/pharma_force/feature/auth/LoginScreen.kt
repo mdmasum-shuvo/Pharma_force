@@ -23,7 +23,7 @@ import com.appinion.pharma_force.ui.theme.BlueMedium
 
 
 @Composable
-fun LoginScreen(navController: NavController, viewModel: AuthViewModel = hiltViewModel()) {
+fun LoginScreen(navController: NavController, viewModel: AuthViewModel = hiltViewModel(),openDrawer: () -> Unit) {
     val login = viewModel.state.value
     val context = LocalContext.current
     LoginUiComponent()
@@ -34,13 +34,13 @@ fun LoginScreen(navController: NavController, viewModel: AuthViewModel = hiltVie
                 Toast.makeText(context, login.data.message, Toast.LENGTH_LONG).show()
                 // navController.navigate(Routing.DashBoardScreen.route)
                 SnackbarSample(color = BlueMedium, text = login.data.message)
-                navController.navigate(Routing.DashBoardScreen.route)
+                navController.navigate(route = Routing.DashBoardScreen.route)
             }
             401 -> {
                 Toast.makeText(context, login.data.message, Toast.LENGTH_LONG).show()
             }
             else -> {
-                navController.navigate(Routing.DashBoardScreen.route)
+                navController.navigate(route = Routing.DashBoardScreen.route)
 
                 SnackbarSample(color = BlueMedium, text = login.data.message)
             }

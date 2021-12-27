@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">MOMENTA</string>
-    <string name="forget_pass">Forget Password?</string>
+    <string name="forget_pass">Forgot Password?</string>
     <string name="by_company_name">By Renata Limited</string>
     <string name="user_id">User ID</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="home">Home</string>
+    <string name="incentive_tracker">Incentive Tracker</string>
 </resources>

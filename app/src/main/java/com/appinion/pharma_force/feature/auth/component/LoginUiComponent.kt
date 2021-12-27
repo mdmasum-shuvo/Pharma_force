@@ -2,9 +2,10 @@ package com.appinion.pharma_force.feature.auth.component
 
 import android.annotation.SuppressLint
 import android.util.Log
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -15,24 +16,27 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.appinion.pharma_force.R
 import com.appinion.pharma_force.feature.auth.AuthViewModel
 import com.appinion.pharma_force.ui.component.ImageNormal
 import com.appinion.pharma_force.ui.component.CustomSpacerHeight
 import com.appinion.pharma_force.ui.theme.*
 
-@SuppressLint("RememberReturnType")
 @Composable
 fun LoginUiComponent(viewmodel: AuthViewModel = hiltViewModel()) {
     val context = LocalContext.current
     val textStateUserId = remember { mutableStateOf("") }
     val textStatePassword = remember { mutableStateOf("") }
     var passwordVisibility = remember { mutableStateOf(false) }
+
     Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally,
+
     ) {
+
         CustomSpacerHeight(size = 96)
         ImageNormal(drawableId = R.drawable.app_icon, 84, 120)
         CustomSpacerHeight(size = 12)
@@ -49,13 +53,6 @@ fun LoginUiComponent(viewmodel: AuthViewModel = hiltViewModel()) {
         CustomSpacerHeight(size = 16)
         CustomRoundTextField(context.getString(R.string.password), textStatePassword)
         CustomSpacerHeight(size = 16)
-
-  /*      CustomRoundButton(
-            text = context.getString(R.string.login),
-            height = 48,
-            width = 156,
-            round = 18
-        )*/
 
         Button(
             modifier = Modifier

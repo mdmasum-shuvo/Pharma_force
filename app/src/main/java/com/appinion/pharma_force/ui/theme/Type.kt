@@ -19,7 +19,7 @@ val Typography = Typography(
     ),
     h2 = TextStyle(
         fontFamily = fonts,
-        fontWeight = FontWeight.Medium,
+        fontWeight = FontWeight.Bold,
         color = BlueMedium,
         fontSize = 14.sp
     ),

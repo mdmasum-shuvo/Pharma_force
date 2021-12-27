@@ -1,4 +1,4 @@
-package com.appinion.pharma_force.netowork.response
+package com.appinion.pharma_force.netowork.api_usecase
 
 import com.appinion.pharma_force.base.ResponseResult
 import com.appinion.pharma_force.model.remot.auth.LoginResponse

@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.appinion.pharma_force.base.ResponseResult
 import com.appinion.pharma_force.base.UNEXPECTED_ERROR
 import com.appinion.pharma_force.model.remot.auth.LoginResponse
-import com.appinion.pharma_force.netowork.response.LoginUseCase
+import com.appinion.pharma_force.netowork.api_usecase.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
