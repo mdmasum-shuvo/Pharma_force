@@ -14,12 +14,15 @@
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowIsTranslucent">true</item>
 
     </style>
 
     <style name="Theme.PharmaForce.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+
     </style>
 
     <style name="Theme.PharmaForce.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

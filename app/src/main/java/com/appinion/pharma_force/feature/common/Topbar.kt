@@ -1,8 +1,10 @@
 package com.appinion.pharma_force.utils
+
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.dp
 import com.appinion.pharma_force.ui.theme.BlueMedium
 
 @Composable
@@ -14,10 +16,12 @@ fun TopBar(title: String = "", buttonIcon: ImageVector, onButtonClicked: () -> U
             )
         },
         navigationIcon = {
-            IconButton(onClick = { onButtonClicked() } ) {
-                Icon(buttonIcon, contentDescription = "",tint = BlueMedium)
+            IconButton(onClick = { onButtonClicked() }) {
+                Icon(buttonIcon, contentDescription = "", tint = BlueMedium)
             }
         },
-        backgroundColor = Color.White
+
+        backgroundColor = Color.White,
+        elevation = 0.dp
     )
 }

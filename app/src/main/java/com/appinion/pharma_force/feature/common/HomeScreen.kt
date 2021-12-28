@@ -2,11 +2,8 @@ package com.appinion.pharma_force.feature.common
 
 
 import androidx.compose.material.*
-
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -23,77 +20,80 @@ import kotlinx.coroutines.launch
 @Composable
 fun HomeScreen() {
     val navController = rememberNavController()
-    Surface(color = MaterialTheme.colors.background) {
-        val drawerState = rememberDrawerState(DrawerValue.Closed)
-        val scope = rememberCoroutineScope()
-        val openDrawer = {
-            scope.launch {
-                drawerState.open()
+    Scaffold{
+        Surface(color = MaterialTheme.colors.background) {
+            val drawerState = rememberDrawerState(DrawerValue.Closed)
+            val scope = rememberCoroutineScope()
+            val openDrawer = {
+                scope.launch {
+                    drawerState.open()
+                }
             }
-        }
 
-        ModalDrawer(
-            drawerState = drawerState,
-            gesturesEnabled = drawerState.isOpen,
-            drawerContent = {
-                Drawer(
-                    onDestinationClicked = { route ->
-                        scope.launch {
-                            drawerState.close()
+            ModalDrawer(
+                drawerState = drawerState,
+                gesturesEnabled = drawerState.isOpen,
+                drawerContent = {
+                    Drawer(
+                        onDestinationClicked = { route ->
+                            scope.launch {
+                                drawerState.close()
+                            }
+                            navController.navigate(route) {
+                                popUpTo = navController.graph.startDestinationId
+                                launchSingleTop = true
+                            }
                         }
-                        navController.navigate(route) {
-                            popUpTo = navController.graph.startDestinationId
-                            launchSingleTop = true
-                        }
-                    }
-                )
-            }
-        ) {
-            NavHost(
-                navController = navController,
-                startDestination = Routing.DashBoardScreen.route
+                    )
+                }
             ) {
-                composable(Routing.LoginScreen.route) {
-                    LoginScreen(
-                        navController = navController, openDrawer = { openDrawer() }
-                    )
-                }
-                composable(Routing.DashBoardScreen.route) {
-                    DashBoardScreen(
-                        openDrawer = {
+                NavHost(
+                    navController = navController,
+                    startDestination = Routing.LoginScreen.route
+                ) {
+                    composable(Routing.LoginScreen.route) {
+                        LoginScreen(
+                            navController = navController
+                        )
+                    }
+                    composable(Routing.DashBoardScreen.route) {
+                        DashBoardScreen(
+                            openDrawer = {
+                                openDrawer()
+                            }, title = Routing.DashBoardScreen.title
+                        )
+                    }
+                    composable(
+                        route = Routing.CommunicationHub.route
+                    ) {
+                        CommunicationHubScreen(openDrawer = {
                             openDrawer()
-                        }, title = Routing.DashBoardScreen.title
-                    )
-                }
-                composable(
-                    route = Routing.CommunicationHub.route
-                ) {
-                    CommunicationHubScreen(openDrawer = {
-                        openDrawer()
-                    }, title = Routing.CommunicationHub.title)
-                }
-                composable(
-                    route = Routing.IncentiveTracker.route
-                ) {
-                    IncentiveCalculatorScreen(
-                        navController = navController,
-                        title = Routing.IncentiveTracker.title
-                    )
-                }
+                        }, title = Routing.CommunicationHub.title)
+                    }
+                    composable(
+                        route = Routing.IncentiveTracker.route
+                    ) {
+                        IncentiveCalculatorScreen(
+                            navController = navController,
+                            title = Routing.IncentiveTracker.title
+                        )
+                    }
 
-                composable(
-                    route = Routing.RenataShop.route
-                ) {
-                    RenataShopScreen(navController = navController)
-                }
+                    composable(
+                        route = Routing.RenataShop.route
+                    ) {
+                        RenataShopScreen(navController = navController)
+                    }
 
-                composable(
-                    route = Routing.TestCenter.route
-                ) {
-                    TestCenterScreen(navController = navController)
+                    composable(
+                        route = Routing.TestCenter.route
+                    ) {
+                        TestCenterScreen(navController = navController)
+                    }
                 }
             }
         }
+
     }
 }
 

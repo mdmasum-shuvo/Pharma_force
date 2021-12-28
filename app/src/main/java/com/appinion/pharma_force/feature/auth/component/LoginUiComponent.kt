@@ -1,6 +1,5 @@
 package com.appinion.pharma_force.feature.auth.component
 
-import android.annotation.SuppressLint
 import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -8,6 +7,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -16,17 +16,20 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.appinion.pharma_force.R
+import com.appinion.pharma_force.base.Routing
 import com.appinion.pharma_force.feature.auth.AuthViewModel
+import com.appinion.pharma_force.model.remot.auth.LoginResponse
 import com.appinion.pharma_force.ui.component.ImageNormal
 import com.appinion.pharma_force.ui.component.CustomSpacerHeight
 import com.appinion.pharma_force.ui.theme.*
 
 @Composable
-fun LoginUiComponent(viewmodel: AuthViewModel = hiltViewModel()) {
+fun LoginUiComponent(onClickLoginButton: () -> Unit,textStateUserId: MutableState<String>,textStatePassword: MutableState<String>) {
     val context = LocalContext.current
-    val textStateUserId = remember { mutableStateOf("") }
-    val textStatePassword = remember { mutableStateOf("") }
+    //val textStateUserId = remember { mutableStateOf("") }
+    //val textStatePassword = remember { mutableStateOf("") }
     var passwordVisibility = remember { mutableStateOf(false) }
 
     Column(
@@ -35,7 +38,7 @@ fun LoginUiComponent(viewmodel: AuthViewModel = hiltViewModel()) {
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
 
-    ) {
+        ) {
 
         CustomSpacerHeight(size = 96)
         ImageNormal(drawableId = R.drawable.app_icon, 84, 120)
@@ -59,9 +62,13 @@ fun LoginUiComponent(viewmodel: AuthViewModel = hiltViewModel()) {
                 .height(48.dp)
                 .width(156.dp)
                 .fillMaxWidth(), onClick = {
-                viewmodel.requestLogin(textStateUserId.value, textStatePassword.value)
+
+                onClickLoginButton()
+                // viewmodel.requestLogin(textStateUserId.value, textStatePassword.value)
                 Log.e("data", textStateUserId.value.toString())
                 Log.e("data", textStatePassword.value.toString())
+                // navController.navigate(route = Routing.DashBoardScreen.route)
+
             },
             shape = RoundedCornerShape(18.dp),
             colors = ButtonDefaults.buttonColors(
@@ -89,7 +96,7 @@ fun LoginUiComponent(viewmodel: AuthViewModel = hiltViewModel()) {
 fun PreviewAuth() {
     //LoginScreen()
     PharmaForceTheme() {
-        LoginUiComponent()
+        //LoginUiComponent()
 
     }
 }

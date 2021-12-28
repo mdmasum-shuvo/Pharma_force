@@ -47,26 +47,10 @@ fun Drawer(
     ) {
         val context = LocalContext.current
         Surface(color = OffWhite) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(120.dp)
-                    .padding(24.dp),
-            ) {
-                ImageNormal(height = 32, width = 32)
-                Column(modifier = Modifier.padding(2.dp, 0.dp)) {
-                    CustomTextHeader(
-                        text = context.getString(R.string.app_name),
-                        textStyle = MaterialTheme.typography.h3
-                    )
-                    CustomTextHeader(
-                        text = context.getString(R.string.by_company_name),
-                        textStyle = MaterialTheme.typography.h4
-                    )
-
-                }
-            }
-
+            TopbarLogo(
+                title = context.getString(R.string.app_name),
+                subTitle = context.getString(R.string.by_company_name)
+            )
         }
         Spacer(Modifier.height(24.dp))
 
