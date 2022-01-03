@@ -1,6 +1,7 @@
 package com.appinion.pharma_force.feature.common
 
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -17,6 +18,7 @@ import com.appinion.pharma_force.feature.testing_center.TestCenterScreen
 import com.appinion.pharma_force.utils.*
 import kotlinx.coroutines.launch
 
+@ExperimentalFoundationApi
 @Composable
 fun HomeScreen() {
     val navController = rememberNavController()
@@ -98,66 +100,3 @@ fun HomeScreen() {
 }
 
 
-@Composable
-fun AppMainScreen() {
-    val navController = rememberNavController()
-    Surface(color = MaterialTheme.colors.background) {
-        val drawerState = rememberDrawerState(DrawerValue.Closed)
-        val scope = rememberCoroutineScope()
-        val openDrawer = {
-            scope.launch {
-                drawerState.open()
-            }
-        }
-        ModalDrawer(
-            drawerState = drawerState,
-            gesturesEnabled = drawerState.isOpen,
-            drawerContent = {
-                Drawer(
-                    onDestinationClicked = { route ->
-                        scope.launch {
-                            drawerState.close()
-                        }
-                        navController.navigate(route) {
-                            popUpTo = navController.graph.startDestinationId
-                            launchSingleTop = true
-                        }
-                    }
-                )
-            }
-        ) {
-            NavHost(
-                navController = navController,
-                startDestination = DrawerScreens.Home.route
-            ) {
-                composable(DrawerScreens.DashBoardScreen.route) {
-                    DashBoardScreen(
-                        openDrawer = {
-                            openDrawer()
-                        }
-                    )
-                }
-                composable(DrawerScreens.Home.route) {
-                    Home(
-                        openDrawer = {
-                            openDrawer()
-                        }
-                    )
-                }
-                composable(DrawerScreens.Account.route) {
-                    Account(
-                        openDrawer = {
-                            openDrawer()
-                        }
-                    )
-                }
-
-                composable(DrawerScreens.Help.route) {
-                    Help(
-                        navController = navController
-                    )
-                }
-            }
-        }
-    }
-}

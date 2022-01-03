@@ -8,7 +8,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Set of Material typography styles to start with
+
+/**
+ * @author MD. Masum Talukder
+ * use it as a custom typography
+ * Set of Material typography styles to start with
+ * for getting custom behaviour
+ * copy h1-h6 text style
+ * copy body text style
+ */
 val Typography = Typography(
 
     h1 = TextStyle(
@@ -37,6 +45,20 @@ val Typography = Typography(
         fontSize = 10.sp
     ),
 
+    h5 = TextStyle(
+        fontFamily = fonts,
+        fontWeight = FontWeight.Normal,
+        color = BlueMedium,
+        fontSize = 10.sp
+    ),
+
+    h6 = TextStyle(
+        fontFamily = fonts,
+        fontWeight = FontWeight.Normal,
+        color = BlueMedium,
+        fontSize = 10.sp
+    ),
+
     body1 = TextStyle(
         fontFamily = fonts,
         fontWeight = FontWeight.Normal,
@@ -47,11 +69,9 @@ val Typography = Typography(
     body2 = TextStyle(
         fontFamily = fonts,
         fontWeight = FontWeight.Normal,
-        color = BlueMedium,
+        color = White,
         fontSize = 14.sp
     ),
-
-
 
 
 /* Other default text styles to override

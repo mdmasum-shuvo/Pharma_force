@@ -10,9 +10,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.appinion.pharma_force.base.Routing
 import com.appinion.pharma_force.feature.auth.component.LoginUiComponent
-import com.appinion.pharma_force.ui.SnackbarSample
+import com.appinion.pharma_force.ui.CustomSnackbar
 import com.appinion.pharma_force.ui.component.PulseLoading
 import com.appinion.pharma_force.ui.theme.BlueMedium
+import com.appinion.pharma_force.utils.ValidationUtils
+import com.appinion.pharma_force.utils.ValidationUtils.checkValidation
 import kotlinx.coroutines.launch
 
 
@@ -21,38 +23,39 @@ fun LoginScreen(
     navController: NavController,
     viewModel: AuthViewModel = hiltViewModel(),
 
-) {
+    ) {
+    ValidationUtils.clearValidationArray()
     val login = viewModel.state.value
     val context = LocalContext.current
+    val validationState = remember { mutableStateOf(false) }
     val textStateUserId = remember { mutableStateOf("") }
     val textStatePassword = remember { mutableStateOf("") }
     Surface(color = MaterialTheme.colors.background) {
+        if (validationState.value) {
+            if (checkValidation()) {
+                viewModel.requestLogin(textStateUserId.value, textStatePassword.value)
+            }
+        }
         val scope = rememberCoroutineScope()
         val onClickLoginButton = {
             scope.launch {
-                viewModel.requestLogin("ffff", "20115")
+                validationState.value = true
             }
         }
-        login.data?.let {
 
+        login.data?.let {
             when (login.data?.status) {
                 200 -> {
                     Toast.makeText(context, login.data.message, Toast.LENGTH_LONG).show()
-                    // navController.navigate(Routing.DashBoardScreen.route)
-
-                    // SnackbarSample(color = BlueMedium, text = login.data.message)
-                    navController.navigate(route = Routing.DashBoardScreen.route)
+                    LaunchedEffect(key1 = true, block = {
+                        navController.navigate(route = Routing.DashBoardScreen.route)
+                    })
                 }
                 401 -> {
                     Toast.makeText(context, login.data.message, Toast.LENGTH_LONG).show()
                 }
                 else -> {
-                    LaunchedEffect(key1 = true, block = {
-                        navController.navigate(route = Routing.DashBoardScreen.route)
-
-                    })
-
-                    // SnackbarSample(color = BlueMedium, text = login.data.message)
+                    CustomSnackbar(color = BlueMedium, text = login.data.message)
                 }
             }
         }
@@ -63,13 +66,12 @@ fun LoginScreen(
         }, textStateUserId = textStateUserId, textStatePassword = textStatePassword)
 
         if (login.isLoading) {
-
             PulseLoading()
         }
 
 
         if (login.error.isNotBlank()) {
-            SnackbarSample(color = BlueMedium, text = login.error)
+            CustomSnackbar(color = BlueMedium, text = login.error)
             Toast.makeText(context, login.error, Toast.LENGTH_LONG).show()
         }
     }
@@ -77,7 +79,10 @@ fun LoginScreen(
 
 }
 
-fun isValid(userID: String, pass: String) {
+private fun isValid(userID: String, pass: String) {
+    if (userID == "")
+
+        return
 
 }
 

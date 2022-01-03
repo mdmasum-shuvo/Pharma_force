@@ -15,12 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import com.appinion.pharma_force.R
-import com.appinion.pharma_force.base.Routing
-import com.appinion.pharma_force.feature.auth.AuthViewModel
-import com.appinion.pharma_force.model.remot.auth.LoginResponse
 import com.appinion.pharma_force.ui.component.ImageNormal
 import com.appinion.pharma_force.ui.component.CustomSpacerHeight
 import com.appinion.pharma_force.ui.theme.*
@@ -62,7 +57,7 @@ fun LoginUiComponent(onClickLoginButton: () -> Unit,textStateUserId: MutableStat
                 .height(48.dp)
                 .width(156.dp)
                 .fillMaxWidth(), onClick = {
-
+            //  CustomSpacerHeight(10)
                 onClickLoginButton()
                 // viewmodel.requestLogin(textStateUserId.value, textStatePassword.value)
                 Log.e("data", textStateUserId.value.toString())

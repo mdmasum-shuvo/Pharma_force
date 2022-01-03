@@ -2,6 +2,14 @@ package com.appinion.pharma_force.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+/**
+ *  @author Md. Masum Taluker
+ *  copy color code as hex
+ *  @sample #BB86FC
+ *  @see BlueMedium = Color(0xFF2E358B)
+ *  add hex color code after 0xFF
+ */
+
 val BlueMedium = Color(0xFF2E358B)
 val White = Color(0xFFFFFFFF)
 val OffWhite = Color(0xFFF8F8F8)

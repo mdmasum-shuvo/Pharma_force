@@ -19,7 +19,11 @@ import com.appinion.pharma_force.ui.theme.OffWhite
 import com.appinion.pharma_force.ui.theme.Transparent
 
 @Composable
-fun CustomRoundTextField(placeHolder: String, textState: MutableState<String>) {
+fun CustomRoundTextField(
+
+    placeHolder: String="",
+    textState: MutableState<String>
+) {
     var passwordVisibility = remember { mutableStateOf(true) }
 
     TextField(
@@ -45,11 +49,12 @@ fun CustomRoundTextField(placeHolder: String, textState: MutableState<String>) {
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
         trailingIcon = {
 
-            IconButton(onClick = {
-                passwordVisibility.value = !passwordVisibility.value
-            }) {
-                //Icon(imageVector = image, "")
-            }
+                IconButton(onClick = {
+                    passwordVisibility.value = !passwordVisibility.value
+                }) {
+                    //Icon(imageVector = image, "")
+                }
+
         }
     )
 }

@@ -7,6 +7,10 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
+/**
+ * @author MD. Masum Taluker
+ * dark and light theme setting globally
+ */
 private val DarkColorPalette = darkColors(
     primary = White,
     primaryVariant = BlueMedium,
@@ -28,6 +32,12 @@ private val LightColorPalette = lightColors(
     */
 )
 
+/**
+ * @name theme called as  PharmaForceTheme
+ * use it as a custom theme
+ * for getting custom behaviour
+ * in appUI
+ */
 @Composable
 fun PharmaForceTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
