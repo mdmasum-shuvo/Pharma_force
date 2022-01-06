@@ -7,14 +7,18 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import com.appinion.pharma_force.base.Routing
 import com.appinion.pharma_force.feature.auth.component.LoginUiComponent
+import com.appinion.pharma_force.model.remot.auth.LoginData
 import com.appinion.pharma_force.ui.CustomSnackbar
 import com.appinion.pharma_force.ui.component.PulseLoading
 import com.appinion.pharma_force.ui.theme.BlueMedium
+import com.appinion.pharma_force.ui.theme.Red
 import com.appinion.pharma_force.utils.ValidationUtils
 import com.appinion.pharma_force.utils.ValidationUtils.checkValidation
+import com.appinion.pharma_force.utils.ValidationUtils.isValid
 import kotlinx.coroutines.launch
 
 
@@ -24,23 +28,28 @@ fun LoginScreen(
     viewModel: AuthViewModel = hiltViewModel(),
 
     ) {
-    ValidationUtils.clearValidationArray()
+    //  ValidationUtils.clearValidationArray()
     val login = viewModel.state.value
+    val validationMessage = viewModel.validationMessage.value
     val context = LocalContext.current
-    val validationState = remember { mutableStateOf(false) }
     val textStateUserId = remember { mutableStateOf("") }
     val textStatePassword = remember { mutableStateOf("") }
     Surface(color = MaterialTheme.colors.background) {
-        if (validationState.value) {
-            if (checkValidation()) {
-                viewModel.requestLogin(textStateUserId.value, textStatePassword.value)
-            }
-        }
+
         val scope = rememberCoroutineScope()
         val onClickLoginButton = {
             scope.launch {
-                validationState.value = true
+                viewModel.loginValidation(LoginData(textStateUserId.value, textStatePassword.value))
+               // viewModel.requestLogin(textStateUserId.value, textStatePassword.value)
             }
+        }
+
+        if (validationMessage.userName!!.isNotBlank()){
+            CustomSnackbar(color = Red, text = validationMessage.userName)
+
+        }
+       else if (validationMessage.password!!.isNotBlank()){
+            CustomSnackbar(color = Red, text = validationMessage.password)
         }
 
         login.data?.let {
@@ -79,10 +88,4 @@ fun LoginScreen(
 
 }
 
-private fun isValid(userID: String, pass: String) {
-    if (userID == "")
-
-        return
-
-}
 

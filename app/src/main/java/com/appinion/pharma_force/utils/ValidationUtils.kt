@@ -1,6 +1,8 @@
 package com.appinion.pharma_force.utils
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import com.appinion.pharma_force.ui.CustomSnackbar
 import com.appinion.pharma_force.ui.theme.Red
 
@@ -35,6 +37,31 @@ object ValidationUtils {
                 )
                 return false
             }
+        }
+        return true
+    }
+
+    @Composable
+    fun isValid(userName: String, pass: String): Boolean {
+        val validationState = remember { mutableStateOf(false) }
+
+        if (userName == "") {
+            validationState.value = true
+
+        } else if (pass == "") {
+            CustomSnackbar(
+                color = Red,
+                text = "password $VALIDATION_MESSAGE"
+            )
+            return false
+        }
+
+        if (validationState.value) {
+            CustomSnackbar(
+                color = Red,
+                text = "User ID $VALIDATION_MESSAGE"
+            )
+            return false
         }
         return true
     }

@@ -7,3 +7,8 @@ data class LoginState(
     val data: LoginResponse?=null,
     val error: String = ""
 )
+
+data class ValidationState(
+    val userName: String? = "",
+    val password: String?=""
+)
