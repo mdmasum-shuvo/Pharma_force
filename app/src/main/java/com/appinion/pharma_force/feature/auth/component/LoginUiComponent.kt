@@ -50,7 +50,7 @@ fun LoginUiComponent(onClickLoginButton: () -> Unit,textStateUserId: MutableStat
         CustomSpacerHeight(size = 92)
         CustomRoundTextField(context.getString(R.string.user_id), textStateUserId)
         CustomSpacerHeight(size = 16)
-        CustomRoundTextField(context.getString(R.string.password), textStatePassword)
+        CustomRoundTextField(context.getString(R.string.password), textStatePassword,true)
         CustomSpacerHeight(size = 16)
 
         Button(

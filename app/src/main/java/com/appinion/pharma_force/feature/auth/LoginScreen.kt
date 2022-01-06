@@ -39,13 +39,14 @@ fun LoginScreen(
         val scope = rememberCoroutineScope()
         val onClickLoginButton = {
             scope.launch {
-                viewModel.loginValidation(LoginData(textStateUserId.value, textStatePassword.value))
-               // viewModel.requestLogin(textStateUserId.value, textStatePassword.value)
+                //viewModel.loginValidation(LoginData(textStateUserId.value, textStatePassword.value))
+               viewModel.requestLogin(textStateUserId.value, textStatePassword.value)
             }
         }
 
         if (validationMessage.userName!!.isNotBlank()){
             CustomSnackbar(color = Red, text = validationMessage.userName)
+            Toast.makeText(context, validationMessage.userName, Toast.LENGTH_LONG).show()
 
         }
        else if (validationMessage.password!!.isNotBlank()){
@@ -64,7 +65,7 @@ fun LoginScreen(
                     Toast.makeText(context, login.data.message, Toast.LENGTH_LONG).show()
                 }
                 else -> {
-                    CustomSnackbar(color = BlueMedium, text = login.data.message)
+                    CustomSnackbar(color = Red, text = login.data.message)
                 }
             }
         }
@@ -80,7 +81,7 @@ fun LoginScreen(
 
 
         if (login.error.isNotBlank()) {
-            CustomSnackbar(color = BlueMedium, text = login.error)
+            CustomSnackbar(color = Red, text = login.error)
             Toast.makeText(context, login.error, Toast.LENGTH_LONG).show()
         }
     }

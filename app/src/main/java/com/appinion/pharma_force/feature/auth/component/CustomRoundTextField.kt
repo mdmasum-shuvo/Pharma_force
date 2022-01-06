@@ -1,19 +1,25 @@
 package com.appinion.pharma_force.feature.auth.component
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.appinion.pharma_force.R
+import com.appinion.pharma_force.ui.component.ImageNormal
 import com.appinion.pharma_force.ui.theme.BlueMedium
 import com.appinion.pharma_force.ui.theme.OffWhite
 import com.appinion.pharma_force.ui.theme.Transparent
@@ -21,9 +27,11 @@ import com.appinion.pharma_force.ui.theme.Transparent
 @Composable
 fun CustomRoundTextField(
 
-    placeHolder: String="",
-    textState: MutableState<String>
+    placeHolder: String = "",
+    textState: MutableState<String>,
+    passToggle: Boolean = false
 ) {
+    val context = LocalContext.current
     var passwordVisibility = remember { mutableStateOf(true) }
 
     TextField(
@@ -47,13 +55,20 @@ fun CustomRoundTextField(
         },
         visualTransformation = if (passwordVisibility.value) VisualTransformation.None else PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+
         trailingIcon = {
+            if (passToggle) {
+                val image = if (passwordVisibility.value)
+                    R.drawable.eye
+                else R.drawable.hidden
 
                 IconButton(onClick = {
                     passwordVisibility.value = !passwordVisibility.value
                 }) {
-                    //Icon(imageVector = image, "")
+                    ImageNormal(image, height = 28, width = 28)
                 }
+            }
+
 
         }
     )
