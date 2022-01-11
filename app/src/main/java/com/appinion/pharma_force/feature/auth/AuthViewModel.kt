@@ -6,7 +6,6 @@ import com.appinion.pharma_force.base.ResponseResult
 import com.appinion.pharma_force.base.UNEXPECTED_ERROR
 import com.appinion.pharma_force.base.VALIDATION_MESSAGE
 import com.appinion.pharma_force.model.remot.auth.LoginData
-import com.appinion.pharma_force.model.remot.auth.LoginResponse
 import com.appinion.pharma_force.netowork.api_usecase.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn

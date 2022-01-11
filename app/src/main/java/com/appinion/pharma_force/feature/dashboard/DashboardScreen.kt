@@ -4,22 +4,19 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.appinion.pharma_force.feature.common.TopBar
 import com.appinion.pharma_force.feature.dashboard.component.DashBoardItem
 import com.appinion.pharma_force.feature.dashboard.data.FakeDataList
 import com.appinion.pharma_force.ui.theme.PharmaForceTheme
-import com.appinion.pharma_force.utils.TopBar
 
 @ExperimentalFoundationApi
 @Composable

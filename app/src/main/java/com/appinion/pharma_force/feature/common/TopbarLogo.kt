@@ -5,7 +5,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.appinion.pharma_force.R
 import com.appinion.pharma_force.feature.auth.component.CustomTextHeader
 import com.appinion.pharma_force.ui.component.ImageNormal
 

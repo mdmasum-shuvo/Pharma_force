@@ -1,4 +1,4 @@
-package com.appinion.pharma_force.utils
+package com.appinion.pharma_force.feature.common
 
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable

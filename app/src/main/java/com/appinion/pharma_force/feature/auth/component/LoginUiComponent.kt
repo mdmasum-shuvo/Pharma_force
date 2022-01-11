@@ -16,7 +16,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.appinion.pharma_force.R
-import com.appinion.pharma_force.ui.CustomSnackbar
 import com.appinion.pharma_force.ui.component.ImageNormal
 import com.appinion.pharma_force.ui.component.CustomSpacerHeight
 import com.appinion.pharma_force.ui.theme.*

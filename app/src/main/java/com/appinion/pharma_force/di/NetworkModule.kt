@@ -19,6 +19,22 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
 
+/**
+ * @author MD. Masum Talukder
+ *
+ * @param Retrofit
+ * @param OkHttpRequest provide okHttp instance
+ * @param Moshi provide moshi instance
+ * @param NetworkCallbackApi provide instance
+ * @provider annotation provide instance of class
+ * @provide moshi as a json converter
+ * @provide Retrofit client for network call
+ * @Access NetworkModule is access over the applicaiton level
+ * @install in SingleTone component annotation provide applevel installation
+ *
+
+ */
+
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {

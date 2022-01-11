@@ -7,18 +7,12 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import com.appinion.pharma_force.base.Routing
 import com.appinion.pharma_force.feature.auth.component.LoginUiComponent
-import com.appinion.pharma_force.model.remot.auth.LoginData
 import com.appinion.pharma_force.ui.CustomSnackbar
 import com.appinion.pharma_force.ui.component.PulseLoading
-import com.appinion.pharma_force.ui.theme.BlueMedium
 import com.appinion.pharma_force.ui.theme.Red
-import com.appinion.pharma_force.utils.ValidationUtils
-import com.appinion.pharma_force.utils.ValidationUtils.checkValidation
-import com.appinion.pharma_force.utils.ValidationUtils.isValid
 import kotlinx.coroutines.launch
 
 

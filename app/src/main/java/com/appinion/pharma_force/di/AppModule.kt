@@ -13,6 +13,17 @@ import dagger.hilt.components.SingletonComponent
 
 import javax.inject.Singleton
 
+/**
+ * @author MD. Masum Talukder
+ *
+ * @param applicaitonContext
+ * @param sharedPrefrence
+ *
+ * create Singletone object
+ * provide instance over the application
+ *
+ */
+
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {

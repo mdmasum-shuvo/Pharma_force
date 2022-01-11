@@ -15,7 +15,6 @@ import com.appinion.pharma_force.feature.dashboard.DashBoardScreen
 import com.appinion.pharma_force.feature.incentive_calculator.IncentiveCalculatorScreen
 import com.appinion.pharma_force.feature.shop.RenataShopScreen
 import com.appinion.pharma_force.feature.testing_center.TestCenterScreen
-import com.appinion.pharma_force.utils.*
 import kotlinx.coroutines.launch
 
 @ExperimentalFoundationApi
