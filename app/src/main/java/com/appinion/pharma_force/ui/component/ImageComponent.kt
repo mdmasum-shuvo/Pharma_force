@@ -30,7 +30,7 @@ fun CircleImage(drawableId:Int,size:Int){
     Card(
         modifier = Modifier.size(size.dp),
         shape = CircleShape,
-        elevation = 2.dp,
+        elevation = 0.dp
 
     ) {
         Image(

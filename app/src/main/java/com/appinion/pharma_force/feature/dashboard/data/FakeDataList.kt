@@ -62,7 +62,7 @@ object FakeDataList {
         fakeList.add(
             DashBoardModel(
                 R.drawable.giftbox,
-                "Renata Shop",
+                "Medicine Shop",
                 "Redeem Exiting Gifts by Using Points Earned from Test Center",
                 1
             )

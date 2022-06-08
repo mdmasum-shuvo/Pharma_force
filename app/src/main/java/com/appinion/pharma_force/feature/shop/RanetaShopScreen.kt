@@ -11,7 +11,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import com.appinion.pharma_force.base.Routing
-import com.appinion.pharma_force.utils.TopBar
+import com.appinion.pharma_force.feature.common.TopBar
 
 @Composable
 fun RenataShopScreen(navController: NavController) {
@@ -20,10 +20,10 @@ fun RenataShopScreen(navController: NavController) {
         Column() {
             TopBar(
                 buttonIcon = Icons.Filled.ArrowBack,
-                title = "Raneta shop",
+                title = "shop",
                 onButtonClicked = { navController.popBackStack() })
             Text(
-                text = "Raneta shop",
+                text = "shop",
                 style = MaterialTheme.typography.h1
             )
 

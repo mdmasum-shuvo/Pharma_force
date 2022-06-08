@@ -50,7 +50,7 @@ fun HomeScreen() {
             ) {
                 NavHost(
                     navController = navController,
-                    startDestination = Routing.LoginScreen.route
+                    startDestination = Routing.DashBoardScreen.route
                 ) {
                     composable(Routing.LoginScreen.route) {
                         LoginScreen(

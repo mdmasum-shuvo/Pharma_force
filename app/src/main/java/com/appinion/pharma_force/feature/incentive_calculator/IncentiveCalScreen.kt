@@ -16,7 +16,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import com.appinion.pharma_force.R
 import com.appinion.pharma_force.base.Routing
-import com.appinion.pharma_force.utils.TopBar
+import com.appinion.pharma_force.feature.common.TopBar
 
 @Composable
 fun IncentiveCalculatorScreen(navController: NavController, title: String = "") {

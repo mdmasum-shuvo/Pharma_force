@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">MOMENTA</string>
+    <string name="app_name">Compose</string>
     <string name="forget_pass">Forgot Password?</string>
-    <string name="by_company_name">By Renata Limited</string>
+    <string name="by_company_name">By Masum Talukder</string>
     <string name="user_id">User ID</string>
     <string name="password">Password</string>
     <string name="login">Login</string>

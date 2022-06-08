@@ -35,9 +35,8 @@ fun LoginUiComponent(onClickLoginButton: () -> Unit,textStateUserId: MutableStat
 
         ) {
 
-        CustomSpacerHeight(size = 96)
-        ImageNormal(drawableId = R.drawable.app_icon, 84, 120)
-        CustomSpacerHeight(size = 12)
+        CustomSpacerHeight(size = 50)
+        ImageNormal(drawableId = R.drawable.app_icon, 180, 300)
         CustomTextHeader(
             text = context.getString(R.string.app_name),
             textStyle = MaterialTheme.typography.h3

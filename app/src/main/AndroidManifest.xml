@@ -26,11 +26,7 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.PharmaForce">
-        <activity
-            android:name=".base.MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.PharmaForce.NoActionBar" />
+
         <activity
             android:name=".feature.common.MainActivity"
             android:exported="true"

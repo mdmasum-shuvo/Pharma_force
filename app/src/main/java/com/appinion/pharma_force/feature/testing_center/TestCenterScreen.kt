@@ -8,7 +8,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
-import com.appinion.pharma_force.utils.TopBar
+import com.appinion.pharma_force.feature.common.TopBar
 
 @Composable
 fun TestCenterScreen(navController: NavController) {
