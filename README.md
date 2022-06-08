@@ -4,8 +4,9 @@
 
 ## Getting Started
 
-This is developed on [Android jetpack component](https://developer.android.com/jetpack/compose](https://developer.android.com/jetpack/getting-started) .
-[hilt dependency injection](https://developer.android.com/jetpack/compose](https://developer.android.com/training/dependency-injection/hilt-android)
+This is developed on 
+- [Android jetpack component](https://developer.android.com/jetpack/compose](https://developer.android.com/jetpack/getting-started) .
+- [hilt dependency injection](https://developer.android.com/jetpack/compose](https://developer.android.com/training/dependency-injection/hilt-android)
 
 
 ## UI Screenshot
