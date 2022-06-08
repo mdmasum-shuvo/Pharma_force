@@ -1,15 +1,15 @@
 # Pharma_force
 
 - [Jetpack compose UI](https://developer.android.com/jetpack/compose)
-- 
+- [Android jetpack component](https://developer.android.com/jetpack/getting-started)
+- [hilt dependency injection](https://developer.android.com/training/dependency-injection/hilt-android)
+
 
 ## Getting Started
 
 This is developed on 
 - [Android jetpack component](https://developer.android.com/jetpack/compose](https://developer.android.com/jetpack/getting-started)
-- [Android jetpack component](https://developer.android.com/jetpack/compose](https://developer.android.com/jetpack/getting-started)
-
-- [hilt dependency injection](https://developer.android.com/jetpack/compose](https://developer.android.com/training/dependency-injection/hilt-android)
+- [hilt dependency injection](https://developer.android.com/training/dependency-injection/hilt-android)
 
 
 ## UI Screenshot
