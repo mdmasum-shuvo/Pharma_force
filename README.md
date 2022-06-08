@@ -5,11 +5,9 @@
 - [hilt dependency injection](https://developer.android.com/training/dependency-injection/hilt-android)
 
 
-## Getting Started
+## Getting Started iwth jetpack compose its fun
 
-This is developed on 
-- [Android jetpack component](https://developer.android.com/jetpack/compose](https://developer.android.com/jetpack/getting-started)
-- [hilt dependency injection](https://developer.android.com/training/dependency-injection/hilt-android)
+<img src="https://github.com/mdmasum-shuvo/Pharma_force/blob/master/file/ss.png?raw=true" width=80% height=30%> 
 
 
 ## UI Screenshot
