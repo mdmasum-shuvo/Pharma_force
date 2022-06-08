@@ -12,6 +12,10 @@
 
 ## UI Screenshot
 
-<img src="https://github.com/mdmasum-shuvo/Pharma_force/blob/master/file/login.png?raw=true" width=30% height=30%> 
+<p float="left">
+  <img src="https://github.com/mdmasum-shuvo/Pharma_force/blob/master/file/login.png?raw=true" width=30% height=30%> 
 
 <img src="https://github.com/mdmasum-shuvo/Pharma_force/blob/master/file/dasboard.png?raw=true" width=30% height=30%> 
+  </p>
+
+
